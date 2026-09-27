@@ -1,0 +1,132 @@
+/* ===== 卡片放大弹层（关于我 / 作品展示通用） ===== */
+
+/* 卡片可点击提示 + 键盘聚焦样式 */
+#about .cards .card,
+#about .works .work-card {
+    cursor: pointer;
+}
+
+#about .cards .card:focus-visible,
+#about .works .work-card:focus-visible {
+    outline: 2px solid var(--blue-500);
+    outline-offset: 2px;
+}
+
+/* 蒙层：毛玻璃模糊背景，突出卡片 */
+.card-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(226, 237, 255, .35);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .28s ease, visibility .28s ease;
+}
+
+.card-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* 放大的卡片：克隆原卡片（保留 .card / .work-card 原有样式），只追加弹层修饰类 */
+.modal-card {
+    width: 100%;
+    max-width: 560px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 36px 38px;
+    border-radius: 18px;
+    box-shadow: 0 30px 80px rgba(37, 99, 235, .28);
+    cursor: default;
+    opacity: 0;
+    transform: scale(.85) translateY(16px);
+    transition: transform .38s cubic-bezier(.22, 1.4, .36, 1), opacity .28s ease;
+}
+
+.card-overlay.show .modal-card {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* 关闭动画期间 hover 不被原卡片的 translateY(-3px) 干扰 */
+.modal-card:hover {
+    transform: scale(.85) translateY(16px);
+    border-color: var(--line);
+    box-shadow: 0 30px 80px rgba(37, 99, 235, .28);
+}
+
+.card-overlay.show .modal-card:hover {
+    transform: scale(1) translateY(0);
+    border-color: rgba(59, 130, 246, .35);
+}
+
+/* 弹层内文字放大，层次更舒展 */
+.modal-card .icon {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.modal-card h3 {
+    font-size: 20px;
+    padding-right: 38px;
+}
+
+.modal-card p,
+.modal-card li {
+    font-size: 15.5px;
+}
+
+.modal-card .work-tag {
+    font-size: 12px;
+    padding: 4px 14px;
+}
+
+/* 关闭按钮 */
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: #6b83a8;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s ease, background .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.modal-close:hover {
+    background: linear-gradient(135deg, var(--blue-500), var(--cyan-400));
+    border-color: transparent;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+@media (max-width: 640px) {
+    .card-overlay {
+        padding: 16px;
+    }
+
+    .modal-card {
+        padding: 28px 22px;
+        max-height: 88vh;
+    }
+}

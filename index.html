@@ -9,16 +9,17 @@
     <link rel="stylesheet"
         href="https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" />
     <!-- 样式：按"基础 → 布局区域 → 响应式"顺序加载 -->
-    <link rel="stylesheet" href="css/base.css?v=1" />
-    <link rel="stylesheet" href="css/nav.css?v=1" />
-    <link rel="stylesheet" href="css/tabs.css?v=1" />
-    <link rel="stylesheet" href="css/hero.css?v=1" />
-    <link rel="stylesheet" href="css/about.css?v=1" />
-    <link rel="stylesheet" href="css/works.css?v=1" />
-    <link rel="stylesheet" href="css/contact.css?v=1" />
-    <link rel="stylesheet" href="css/chat.css?v=1" />
-    <link rel="stylesheet" href="css/footer.css?v=1" />
-    <link rel="stylesheet" href="css/responsive.css?v=1" />
+    <link rel="stylesheet" href="css/base.css?v=2" />
+    <link rel="stylesheet" href="css/nav.css?v=2" />
+    <link rel="stylesheet" href="css/tabs.css?v=2" />
+    <link rel="stylesheet" href="css/hero.css?v=2" />
+    <link rel="stylesheet" href="css/about.css?v=2" />
+    <link rel="stylesheet" href="css/works.css?v=2" />
+    <link rel="stylesheet" href="css/contact.css?v=2" />
+    <link rel="stylesheet" href="css/chat.css?v=2" />
+    <link rel="stylesheet" href="css/footer.css?v=2" />
+    <link rel="stylesheet" href="css/modal.css?v=1" />
+    <link rel="stylesheet" href="css/responsive.css?v=2" />
 </head>
 
 <body>
@@ -159,12 +160,15 @@
                     <button data-q="你有哪些作品？">你有哪些作品？</button>
                     <button data-q="怎么联系你？">怎么联系你？</button>
                 </div>
-                <div class="chat-input">
-                    <input id="chatInput" type="text" placeholder="问点别的也行…" autocomplete="off" />
-                    <button id="sendBtn">发送</button>
+                <div class="chat-input-wrap">
+                    <div class="chat-input">
+                        <input id="chatInput" type="text" maxlength="250" placeholder="问点别的也行…" autocomplete="off" />
+                        <button id="sendBtn">发送</button>
+                    </div>
+                    <div class="chat-counter"><span id="charCount">0</span> / 250</div>
                 </div>
             </div>
-            <p class="chat-note">※ 原型阶段：分身由本地规则驱动，回答基于页面上公开的信息。</p>
+            <p class="chat-note">※ 由魔搭社区 DeepSeek-V4.1-Flash 驱动，回答基于 Lixrea 的公开资料；未配置 API Token 时自动使用本地规则模式。</p>
         </div>
     </section>
 
@@ -172,7 +176,8 @@
 
     <!-- 脚本：tabs 先于 chat（互不依赖，按功能顺序加载） -->
     <script src="js/tabs.js?v=1"></script>
-    <script src="js/chat.js?v=1"></script>
+    <script src="js/chat.js?v=3"></script>
+    <script src="js/card-modal.js?v=1"></script>
 </body>
 
 </html>

@@ -1,0 +1,12 @@
+# 密钥文件：绝不提交（里面是真实 API Key）
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# 系统/编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

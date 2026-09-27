@@ -164,11 +164,28 @@
     color: #fff;
 }
 
+.chat-input-wrap {
+    border-top: 1px solid var(--line);
+}
+
 .chat-input {
     display: flex;
     gap: 10px;
-    padding: 14px 20px;
-    border-top: 1px solid var(--line);
+    padding: 14px 20px 6px;
+}
+
+.chat-counter {
+    text-align: right;
+    padding: 0 22px 12px;
+    font-size: 12px;
+    color: var(--text-sub);
+    font-variant-numeric: tabular-nums;
+    user-select: none;
+    transition: color .15s;
+}
+
+.chat-counter.near {
+    color: #f59e0b;
 }
 
 .chat-input input {
