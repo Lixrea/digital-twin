@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lixrea · 个人主页</title>
+    <link rel="preconnect" href="https://fonts.loli.net" crossorigin />
+    <link rel="stylesheet"
+        href="https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" />
+    <link rel="stylesheet" href="style.css?v=6" />
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-logo">Lixrea<span>.</span></div>
+            <div class="nav-badge"><i class="pulse-dot"></i>数字分身在线</div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="wrap hero-inner">
+            <div class="avatar" id="avatar">
+                <img src="https://pica.zhimg.com/v2-e913cee9c5f010f9d86569b91bf231be_1440w.jpg" alt="Lixrea 头像"
+                    onerror="this.remove()" />
+            </div>
+            <div class="hero-text">
+                <span class="hero-tag">DIGITAL TWIN · V1</span>
+                <h1>Lixrea</h1>
+                <p class="intro">一个正在学习用 AI 做产品的内容策划，<em>喜欢把复杂问题讲成人话</em>。</p>
+                <div class="chips">
+                    <span class="chip">AI 应用</span>
+                    <span class="chip">写作</span>
+                    <span class="chip">探索</span>
+                </div>
+                <div class="hero-actions">
+                    <button class="hero-tab active" data-tab="about">看看我在做什么</button>
+                    <button class="hero-tab" data-tab="twin">和我的数字分身聊聊 →</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 关于我（默认显示） -->
+    <section id="about" class="tab-panel active">
+        <div class="wrap">
+            <div class="section-title">
+                <div class="bar"></div>
+                <h2>关于我</h2>
+                <span class="eyebrow">ABOUT ME</span>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="icon">✦</div>
+                    <h3>最近在做</h3>
+                    <p>搭建自己的个人主页，整理作品和写作方向，让积累的东西有个清晰的落点。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">◈</div>
+                    <h3>我关心的方向</h3>
+                    <ul>
+                        <li>内容表达</li>
+                        <li>AI 应用</li>
+                        <li>知识整理</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="icon">◇</div>
+                    <h3>我的特点</h3>
+                    <p>擅长把复杂问题拆开、讲成人话，让信息层次清楚、人人能懂。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数字分身聊天区（点击「数字分身」按钮显示） -->
+    <section id="twin" class="chat-section tab-panel">
+        <div class="wrap">
+            <div class="section-title">
+                <div class="bar"></div>
+                <h2>和我的数字分身聊聊</h2>
+                <span class="eyebrow">DIGITAL TWIN</span>
+            </div>
+            <div class="card-chat">
+                <div class="chat-head">
+                    <div class="bot-dot">L</div>
+                    <div class="info">
+                        <b>Lixrea 的数字分身</b>
+                        <span>基于我的公开资料回答 · 在线</span>
+                    </div>
+                </div>
+                <div class="chat-body" id="chatBody"></div>
+                <div class="suggest">
+                    <button data-q="你现在在做什么？">你现在在做什么？</button>
+                    <button data-q="你有哪些作品？">你有哪些作品？</button>
+                    <button data-q="怎么联系你？">怎么联系你？</button>
+                </div>
+                <div class="chat-input">
+                    <input id="chatInput" type="text" placeholder="问点别的也行…" autocomplete="off" />
+                    <button id="sendBtn">发送</button>
+                </div>
+            </div>
+            <p class="chat-note">※ 原型阶段：分身由本地规则驱动，回答基于页面上公开的信息。</p>
+        </div>
+    </section>
+
+    <footer>© 2026 Lixrea · 用 AI 做产品的内容策划</footer>
+
+    <script src="main.js?v=4"></script>
+</body>
+
+</html>
