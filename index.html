@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.loli.net" crossorigin />
     <link rel="stylesheet"
         href="https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" />
-    <link rel="stylesheet" href="style.css?v=6" />
+    <link rel="stylesheet" href="style.css?v=8" />
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     <nav>
         <div class="nav-inner">
             <div class="nav-logo">Lixrea<span>.</span></div>
-            <div class="nav-badge"><i class="pulse-dot"></i>数字分身在线</div>
+            <button id="navBadge" class="nav-badge" data-tab="twin"><i class="pulse-dot"></i>数字分身在线</button>
         </div>
     </nav>
 
@@ -37,8 +37,8 @@
                     <span class="chip">探索</span>
                 </div>
                 <div class="hero-actions">
-                    <button class="hero-tab active" data-tab="about">看看我在做什么</button>
-                    <button class="hero-tab" data-tab="twin">和我的数字分身聊聊 →</button>
+                    <button id="ctaAbout" class="hero-tab active" data-tab="about">了解我的作品与联系</button>
+                    <button id="ctaTwin" class="hero-tab" data-tab="twin">和我的数字分身聊聊 →</button>
                 </div>
             </div>
         </div>
@@ -71,6 +71,57 @@
                     <div class="icon">◇</div>
                     <h3>我的特点</h3>
                     <p>擅长把复杂问题拆开、讲成人话，让信息层次清楚、人人能懂。</p>
+                </div>
+            </div>
+
+            <!-- 作品展示 -->
+            <div class="section-title works-title">
+                <div class="bar"></div>
+                <h2>作品展示</h2>
+                <span class="eyebrow">SELECTED WORKS</span>
+            </div>
+            <div class="works">
+                <article class="work-card">
+                    <span class="work-tag">内容策划</span>
+                    <h3>「AI 产品观察」内容专栏</h3>
+                    <p>追踪有意思的 AI 应用，用普通人能看懂的方式拆解产品逻辑与背后的技术思路。</p>
+                    <span class="work-meta">持续更新中</span>
+                </article>
+                <article class="work-card">
+                    <span class="work-tag">AI 应用</span>
+                    <h3>数字分身对话原型</h3>
+                    <p>你正在用的这个——基于规则的本地分身，下一步计划接入真 LLM 做更自由的问答。</p>
+                    <span class="work-meta">原型 V1</span>
+                </article>
+                <article class="work-card">
+                    <span class="work-tag">写作</span>
+                    <h3>个人写作实践</h3>
+                    <p>围绕内容表达与知识整理的系列文章，探索如何用清晰的结构讲好复杂的事。</p>
+                    <span class="work-meta">整理中</span>
+                </article>
+            </div>
+
+            <!-- 联系方式 -->
+            <div class="section-title contact-title">
+                <div class="bar"></div>
+                <h2>联系方式</h2>
+                <span class="eyebrow">GET IN TOUCH</span>
+            </div>
+            <div class="contact-card">
+                <p class="contact-lead">想聊聊 AI 应用、内容合作，或者认识一下，都欢迎。</p>
+                <div class="contact-list">
+                    <a class="contact-item" href="mailto:hello@lixrea.com">
+                        <span class="contact-label">邮箱</span>
+                        <span class="contact-value">hello@lixrea.com</span>
+                    </a>
+                    <a class="contact-item" href="https://www.zhihu.com" target="_blank" rel="noopener">
+                        <span class="contact-label">知乎</span>
+                        <span class="contact-value">@Lixrea</span>
+                    </a>
+                    <a class="contact-item" href="https://space.bilibili.com/1766837340" target="_blank" rel="noopener">
+                        <span class="contact-label">bilibili</span>
+                        <span class="contact-value">@Lixrea</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -109,7 +160,7 @@
 
     <footer>© 2026 Lixrea · 用 AI 做产品的内容策划</footer>
 
-    <script src="main.js?v=4"></script>
+    <script src="main.js?v=5"></script>
 </body>
 
 </html>

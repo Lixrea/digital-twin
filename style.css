@@ -85,11 +85,12 @@ nav::after {
     color: var(--blue-500);
 }
 
-/* 在线徽章：装饰性状态指示，提升页面质感 */
+/* 在线徽章：装饰性状态指示，可点击直达聊天区 */
 .nav-badge {
     display: flex;
     align-items: center;
     gap: 8px;
+    font-family: inherit;
     font-size: 12px;
     letter-spacing: 1px;
     color: var(--blue-600);
@@ -98,6 +99,14 @@ nav::after {
     background: rgba(255, 255, 255, .7);
     border: 1px solid rgba(59, 130, 246, .3);
     box-shadow: 0 2px 12px rgba(56, 189, 248, .18);
+    cursor: pointer;
+    transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+
+.nav-badge:hover {
+    border-color: var(--blue-500);
+    box-shadow: 0 4px 16px rgba(56, 189, 248, .3);
+    transform: translateY(-1px);
 }
 
 .pulse-dot {
@@ -325,6 +334,18 @@ nav::after {
     border-color: var(--blue-500);
 }
 
+/* 聊天入口在非激活时保持次级强调：渐变描边 + 浅渐变底 */
+.hero-tab[data-tab="twin"]:not(.active) {
+    border-color: rgba(56, 189, 248, .55);
+    background: linear-gradient(135deg, rgba(59, 130, 246, .08), rgba(56, 189, 248, .1));
+    color: var(--blue-600);
+}
+
+.hero-tab[data-tab="twin"]:not(.active):hover {
+    background: linear-gradient(135deg, rgba(59, 130, 246, .14), rgba(56, 189, 248, .18));
+    border-color: var(--blue-500);
+}
+
 /* 当前所在界面的按钮 = 高亮态 */
 .hero-tab.active {
     font-size: 15px;
@@ -471,6 +492,141 @@ section {
     height: 6px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--cyan-400), var(--blue-500));
+}
+
+/* ===== 作品展示 ===== */
+.works-title,
+.contact-title {
+    margin-top: 52px;
+}
+
+.works {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.work-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+/* 作品卡片顶部渐变线：与「关于我」卡片 hover 效果保持一致 */
+.work-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cyan-400), var(--blue-500), var(--indigo-400));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s ease;
+}
+
+.work-card:hover::before {
+    transform: scaleX(1);
+}
+
+.work-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(59, 130, 246, .35);
+    box-shadow: 0 14px 34px rgba(59, 130, 246, .14);
+}
+
+.work-tag {
+    align-self: flex-start;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--blue-600);
+    background: var(--blue-100);
+    padding: 3px 11px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+}
+
+.work-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--ink);
+    letter-spacing: .5px;
+}
+
+.work-card p {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--text-sub);
+}
+
+.work-meta {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #8ba2c7;
+}
+
+/* ===== 联系方式 ===== */
+.contact-card {
+    background: linear-gradient(135deg, var(--blue-50), #ffffff);
+    border: 1px solid rgba(59, 130, 246, .22);
+    border-radius: var(--radius);
+    padding: 28px 30px;
+}
+
+.contact-lead {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--text-main);
+    margin-bottom: 20px;
+}
+
+.contact-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .75);
+    border: 1px solid var(--line);
+    text-decoration: none;
+    transition: border-color .15s, background .15s, transform .15s;
+}
+
+.contact-item:hover {
+    border-color: var(--blue-500);
+    background: var(--white);
+    transform: translateY(-2px);
+}
+
+.contact-label {
+    font-size: 12px;
+    color: #8ba2c7;
+}
+
+.contact-value {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
 }
 
 /* ===== 聊天区 ===== */
@@ -730,8 +886,19 @@ footer {
         padding-bottom: 12px;
     }
 
-    .cards {
+    .cards,
+    .works,
+    .contact-list {
         grid-template-columns: 1fr;
+    }
+
+    .works-title,
+    .contact-title {
+        margin-top: 40px;
+    }
+
+    .contact-card {
+        padding: 22px 20px;
     }
 
     .chat-body {
