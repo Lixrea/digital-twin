@@ -1,0 +1,44 @@
+/* ===== 基础：变量、重置、全局排版 ===== */
+:root {
+    --blue-600: #2563eb;
+    --blue-500: #3b82f6;
+    --cyan-400: #38bdf8;
+    --indigo-400: #818cf8;
+    --blue-100: #dbeafe;
+    --blue-50: #eff6ff;
+    --bg-top: #e3effd;
+    --bg-bottom: #f7fbff;
+    --white: #ffffff;
+    --ink: #0f2a52;
+    --text-main: #1c2f4e;
+    --text-sub: #5a6b85;
+    --line: #dde9f9;
+    --radius: 14px;
+    /* 字体系统：展示字体（标题/西文）+ 正文字体（多字重中文） */
+    --font-display: "Space Grotesk", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", -apple-system, "Segoe UI", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 40%, var(--white) 100%);
+    color: var(--text-main);
+    line-height: 1.6;
+    letter-spacing: .2px;
+}
+
+.wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 20px;
+}

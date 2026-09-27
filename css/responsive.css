@@ -1,0 +1,73 @@
+/* ===== 移动端响应式 ===== */
+@media (max-width: 640px) {
+    .hero {
+        padding: 48px 0 44px;
+    }
+
+    .hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p.intro {
+        font-size: 16px;
+    }
+
+    .hero-actions {
+        margin-top: 24px;
+        width: 100%;
+    }
+
+    .hero-tab {
+        flex: 1;
+        text-align: center;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .hero-tab.active {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .cards,
+    .works,
+    .contact-list {
+        grid-template-columns: 1fr;
+    }
+
+    .works-title,
+    .contact-title {
+        margin-top: 40px;
+    }
+
+    .contact-card {
+        padding: 22px 20px;
+    }
+
+    .chat-body {
+        height: 340px;
+    }
+
+    .msg {
+        max-width: 88%;
+    }
+
+    .nav-badge {
+        padding: 5px 11px;
+        font-size: 11px;
+    }
+}
+
+/* 无障碍：尊重减少动态偏好 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

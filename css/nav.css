@@ -1,0 +1,96 @@
+/* ===== 顶部导航 ===== */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, .75);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(59, 130, 246, .15);
+}
+
+/* 顶部科技感渐变光条 */
+nav::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--cyan-400), var(--blue-500), var(--indigo-400));
+    opacity: .7;
+}
+
+.nav-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: .5px;
+}
+
+.nav-logo span {
+    color: var(--blue-500);
+}
+
+/* 在线徽章：装饰性状态指示，可点击直达聊天区 */
+.nav-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--blue-600);
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .7);
+    border: 1px solid rgba(59, 130, 246, .3);
+    box-shadow: 0 2px 12px rgba(56, 189, 248, .18);
+    cursor: pointer;
+    transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+
+.nav-badge:hover {
+    border-color: var(--blue-500);
+    box-shadow: 0 4px 16px rgba(56, 189, 248, .3);
+    transform: translateY(-1px);
+}
+
+.pulse-dot {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3ddc84;
+    flex-shrink: 0;
+}
+
+.pulse-dot::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid rgba(61, 220, 132, .7);
+    animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}

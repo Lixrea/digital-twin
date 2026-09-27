@@ -1,0 +1,201 @@
+/* ===== Hero：浅蓝→白渐变 + 网格纹理 + 光晕 ===== */
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(165deg, #d6e9ff 0%, #eaf3ff 45%, #ffffff 100%);
+    padding: 72px 0 64px;
+}
+
+/* 淡网格（科技感纹理，中心向外淡出） */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(59, 130, 246, .09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, .09) 1px, transparent 1px);
+    background-size: 42px 42px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 85% at 72% 15%, #000 0%, transparent 75%);
+    mask-image: radial-gradient(ellipse 75% 85% at 72% 15%, #000 0%, transparent 75%);
+}
+
+/* 右上角青色光晕 */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -80px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(56, 189, 248, .28) 0%, rgba(56, 189, 248, 0) 70%);
+    pointer-events: none;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    flex-wrap: wrap;
+}
+
+.avatar {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, .9);
+    background: var(--blue-100);
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--blue-600);
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, .55), 0 14px 42px rgba(56, 189, 248, .35);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 260px;
+}
+
+.hero-tag {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--blue-600);
+    border: 1px solid rgba(59, 130, 246, .35);
+    background: rgba(255, 255, 255, .6);
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+}
+
+/* 渐变标题：首屏第一视觉焦点（展示字体） */
+.hero h1 {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0;
+    color: var(--ink);
+    background: linear-gradient(120deg, var(--ink) 20%, var(--blue-600) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p.intro {
+    margin-top: 14px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #44597e;
+    max-width: 460px;
+}
+
+/* 介绍句中的记忆点强调 */
+.hero p.intro em {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--blue-600);
+}
+
+.hero .chips {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* 兴趣标签：弱化为辅助信息，不与按钮抢注意力 */
+.chip {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .55);
+    color: #647ea6;
+    border: 1px solid rgba(59, 130, 246, .18);
+}
+
+/* ===== 首屏按钮行：主次分明 ===== */
+.hero-actions {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* 首屏导航按钮：跟随当前界面高亮 */
+.hero-tab {
+    font-family: inherit;
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(59, 130, 246, .35);
+    background: rgba(255, 255, 255, .6);
+    color: var(--blue-600);
+    cursor: pointer;
+    transition: background .15s, border-color .15s, color .15s, box-shadow .15s, transform .15s;
+}
+
+.hero-tab:hover:not(.active) {
+    background: rgba(255, 255, 255, .9);
+    border-color: var(--blue-500);
+}
+
+/* 聊天入口在非激活时保持次级强调：渐变描边 + 浅渐变底 */
+.hero-tab[data-tab="twin"]:not(.active) {
+    border-color: rgba(56, 189, 248, .55);
+    background: linear-gradient(135deg, rgba(59, 130, 246, .08), rgba(56, 189, 248, .1));
+    color: var(--blue-600);
+}
+
+.hero-tab[data-tab="twin"]:not(.active):hover {
+    background: linear-gradient(135deg, rgba(59, 130, 246, .14), rgba(56, 189, 248, .18));
+    border-color: var(--blue-500);
+}
+
+/* 当前所在界面的按钮 = 高亮态 */
+.hero-tab.active {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--blue-500), var(--cyan-400));
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(56, 189, 248, .35);
+}
+
+.hero-tab.active:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(56, 189, 248, .45);
+    filter: brightness(1.06);
+}
